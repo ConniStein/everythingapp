@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container-box-10-5">
+    <div class="icon-box">
+        <h1>Everything App</h1>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" 
+        fontIcon="face_2" color="primary"></mat-icon>
+    </div>
+    
+    <div class="form-box">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button mat-raised-button (click)="goToHome()">Login</button>
+        <p>Don't have an account yet?<a (click)="goToRegister()" color="primary">Register here</a></p>
+    </div>
+    
+</div>
+
+  
