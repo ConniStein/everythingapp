@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {provideHttpClient} from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -45,6 +46,7 @@ import { environment } from '../environments/environment';
     RegisterComponent,
     ProfileComponent,
     HomeComponent,
+    CommonModule
    
   ],
   providers: [
