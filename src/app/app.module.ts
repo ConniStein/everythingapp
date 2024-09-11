@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {provideHttpClient} from '@angular/common/http';
+
+
 
 // COMPONENTS
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +20,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Firebase imports
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+// Environment import for Firebase configuration
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,10 +44,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+   
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    // Provide Firebase Authentication
+    provideAuth(() => getAuth()),
+    // Provide Firestore
+    provideFirestore(() => getFirestore()),
+    provideHttpClient()
+    
   ],
   bootstrap: [AppComponent]
 })

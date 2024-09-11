@@ -6,15 +6,21 @@
     </div>
     
     <div class="form-box">
+
+        @if (errorMessage) {
+            <mat-chip-set aria-label="Error Message">
+                <mat-chip color="primary">{{errorMessage}}</mat-chip>
+            </mat-chip-set>
+        }
         <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput>
+            <input matInput type="email" [(ngModel)]="email">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput>
+            <input matInput type="password" [(ngModel)]="password">
         </mat-form-field>
-        <button mat-raised-button (click)="goToHome()">Login</button>
+        <button mat-raised-button (click)="loginUser()">Login</button>
         <p>Don't have an account yet?<a (click)="goToRegister()" color="primary">Register here</a></p>
     </div>
     
